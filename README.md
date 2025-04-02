@@ -1,12 +1,12 @@
-Topic 05: Dissecting DNA methylation heterogeneity in disease
+Topic 05: Dissecting DNA methylation heterogeneity in cancer
 ============================================================
 
 ### *Project overview and guidelines*
 
 -   [Introduction](#introduction)
--   [Objective](#objectives-and-work-plan)
+-   [Objective](#objective)
 -   [Description of datasets](#description-of-datasets)
--   [Literature review](#literature)
+-   [Literature review](#literature-review)
 -   [How to structure your project](#how-to-structure-your-project)
     -   [Project proposal](#project-proposal)
     -   [Project](#project)
@@ -14,36 +14,35 @@ Topic 05: Dissecting DNA methylation heterogeneity in disease
 Supervisor
 ----------
 
-- Supvervisor: Michael Scherer - michael.scherer@dkfz.de
-- Tutor: Stefanie Mantz - s.mantz@stud.uni-heidelberg.de
+- Supervisor: Michael Scherer - <m.scherer@dkfz.de>
+- Tutorin: tba 
 
 
 Introduction
 ------------
 
-DNA methylation is a cell-type specific epigenetic modification that is severly altered in multiple diseases, especially in cancers. By the addition or removal of a methyl-group to cytosines in the CpG context in DNA, the transcriptional activity of genes can be modulated. This can, for example, cause the aberrant activation of oncogenes or the supression of tumor supressor genes. DNA methylation has utilities as a biomarker, since it can be read in a high-throughput manner using next-generation sequencing approaches, but also with microarray technologies. Using these microarray technologies, one can readout a subset of 1-5% of all CpGs dinucleotides in the human genome at high-throughput. The microarrays will generate so-called beta-values limited to the [0, 1] interval representing the fraction of methylated CpGs in the bulk of cells that have been used as input to the array. We expect that most of the CpGs will have beta values close to either 0 or 1, respectively.
+DNA methylation is a cell-type specific epigenetic modification that is severely altered in multiple diseases, especially in cancers. By the addition or removal of a methyl-group to cytosines in the CpG context in DNA, the transcriptional activity of genes can be modulated. This can, for example, cause the aberrant activation of oncogenes or the suppression of tumor suppressor genes. DNA methylation has utilities as a biomarker, since it can be read in a high-throughput manner using next-generation sequencing approaches, but also with microarray technologies. Using these microarray technologies, one can readout a subset of 1-5% of all CpGs dinucleotides in the human genome in many samples at a time. The microarrays will generate so-called beta-values limited to the [0, 1] interval representing the fraction of methylated CpGs in the bulk of cells that have been used as input to the array. We expect that most of the CpGs will have beta values close to either 0 or 1, respectively, since CpGs are either methylated or not in a single cell.
 
 
 Objectives and work plan
 ------------------------
 
-Within this project, you will analyze a DNA methylation dataset generated using the Illumina Methylation 450k bead array (microarray) technology. The goal is to thoroughly understand technical issues related to the array, to filter CpGs for their quality, and ultimately to perform a differential DNA methylation analysis between cancer and matched normal samples. In addition to an exploratory analysis, including low-dimensional representation plots of the data, you will also investigate the methylation state of individual CpGs.
+Within this project, you will analyze a DNA methylation dataset generated using the Illumina Methylation 450k bead array (microarray) technology. The goal is to thoroughly understand technical issues related to the array, to filter CpGs for their quality, and ultimately to perform a differential DNA methylation analysis between cancer and matched normal samples. In addition to an exploratory analysis, including low-dimensional representation plots of the data, you will also investigate the methylation state of individual CpGs in relation to cancer.
 
 
 Description of datasets
 -----------------------
 
-Your dataset comes in the form of a DNA methylation data matrix. Rows represent the different CpGs (usually between 400,000 and 800,000) and columns contain the samples that we want to analyze. You will have an additional data matrix comprising phenotypic information about the samples, i.e. this matrix will contain as many rows as columns in the data matrix. Each entry in your data matrix contains the beta values representing the average DNA methylation state of all cells analyzed in an individual sample. The data matrix has already been normalized to account for technical issues of the microarrays.
+Your dataset comes in the form of a DNA methylation data matrix. Rows represent the different CpGs (usually between 400,000 and 800,000) and columns contain the samples that we want to analyze. You will have an additional data matrix comprising phenotypic information about the samples, i.e. this matrix will contain as many rows as columns in the data matrix. There is an additional document, called CpG_annotation.csv, available, which indicates the CpGs and its genomic location in the human reference genome version hg19. Each entry in your data matrix contains the beta values representing the average DNA methylation state of all cells analyzed in an individual sample. The data matrix has already been normalized to account for technical issues of the microarrays.
 
 Data comes from the TCGA project and was already pre-processed to remove CpGs due to lower technical quality in a bigger cohort. However, you should still investigate whether some CpGs do not behave as expected. We have different tumor entities and would like each of the groups to investigate one of the tumor entities:
 
-- Group 1: BRCA = Breast invasive carcinoma
-- Group 2: LUSC = Lung squamous cell carcinoma
-- Group 3: COAD = Colon adenocarcinoma
-- Group 4: THCA = Thyroid carcinoma
-- Group 5: KIRC = Kidney renal clear cell carcinoma
+- Group 1: HNSC = Head and Neck squamous cell carcinoma
+- Group 2: LUAD = Lung adenocarcinoma
+- Group 3: THCA = Thyroid carcinoma
+- Group 4: UCEC = Uterine Corpus Endometrioid Carcinoma
 
-Data is available from: https://hub.dkfz.de/s/oeFnRppe6BpfNFa
+Data is available from: https://hub.dkfz.de/s/oeFnRppe6BpfNFa. 
 
 Literature 
 ----------
@@ -66,11 +65,11 @@ include
 
 You will present this project proposal together with a literature review
 on the subject 3 week after the beginning of the semester (10 minute
-presentation + 5 minutes discussion).
+presentation + 10 minutes discussion).
 
 ### Project
 
-Your project **MUST** contain the following elements:
+The following points **must** be included in your project:
 - **descriptive statistics** about the datasets
 - **graphical representations**
 - **dimension reduction** analysis (PCA, clustering or k-means)
@@ -106,7 +105,7 @@ structure. Perform basic exploratory data analysis.
 
 #### Data reduction
 
-You have a high dimension matrix, that is, you have way more features
+You have a high dimensional matrix, that is, you have way more features
  than observations.
 
 -   Try out methods to reduce the dimensionality of this data.
@@ -118,5 +117,5 @@ You have a high dimension matrix, that is, you have way more features
 
 Using data modeling with linear regression, we expect you to perform two tasks:
 
-- Generate linear models to understand the relationship between CpG methylation states and phenotypic information. We want you to compare the *Primary solid Tumor* to the *Solid Tissue Normal* group
+- Generate linear models to understand the relationship between CpG methylation states and phenotypic information. We want you to compare the *Primary solid Tumor* to the *Solid Tissue Normal* group.
 - Use linear models to understand relationships between different CpGs. Are there highly correlated or anti-correlated CpGs?
