@@ -15,7 +15,7 @@ Supervisor
 ----------
 
 - Supervisor: Michael Scherer - <m.scherer@dkfz.de>
-- Tutorin: tba 
+- Tutorin: Franziska Lam - <franziska.lam@stud.uni-heidelberg.de> 
 
 
 Introduction
